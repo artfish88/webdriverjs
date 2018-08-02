@@ -1,0 +1,150 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2018-05-18T19:44:41.446Z",
+    "end": "2018-05-18T19:44:53.892Z",
+    "duration": 12446,
+    "testsRegistered": 3,
+    "passPercent": 66.7,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "warning",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "61d99f82-475b-4c97-aedc-645a4c4f42a8",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "a5c929e9-22b8-4483-aecf-145fcc1ceae6",
+        "title": "library app scenarios",
+        "fullFile": "/Users/artur/Desktop/webdriver/test/library.js",
+        "file": "/test/library.js",
+        "beforeHooks": [
+          {
+            "title": "\"before each\" hook",
+            "fullTitle": "library app scenarios \"before each\" hook",
+            "timedOut": false,
+            "duration": 1,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "driver = new webdriver.Builder().forBrowser('chrome').build();\ndriver.get('http://library-app.firebaseapp.com');",
+            "err": {},
+            "isRoot": false,
+            "uuid": "1c77b2cf-1aa7-4953-9b37-06b1f35d926a",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [
+          {
+            "title": "\"after each\" hook",
+            "fullTitle": "library app scenarios \"after each\" hook",
+            "timedOut": false,
+            "duration": 1,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "driver.quit();",
+            "err": {},
+            "isRoot": false,
+            "uuid": "bd3adca1-7d00-4c99-8c43-eefa8fd7ca5c",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "tests": [
+          {
+            "title": "check that button is enabled",
+            "fullTitle": "library app scenarios check that button is enabled",
+            "timedOut": false,
+            "duration": 7535,
+            "state": "failed",
+            "pass": false,
+            "fail": true,
+            "pending": false,
+            "code": "var submitBtn = driver.findElement(By.css('.btn-lg'));\ndriver.findElement(By.css('input')).sendKeys('usermail.com');\ndriver.wait(function(){\n  return submitBtn.getCssValue('opacity').then(function(result){\n    return result == 1;\n  });\n}, 5000);",
+            "err": {
+              "message": "TimeoutError: Wait timed out after 5006ms",
+              "estack": "TimeoutError: Wait timed out after 5006ms\n    at WebDriverError (/Users/artur/node_modules/selenium-webdriver/lib/error.js:27:5)\n    at TimeoutError (/Users/artur/node_modules/selenium-webdriver/lib/error.js:238:5)\n    at /Users/artur/node_modules/selenium-webdriver/lib/promise.js:2209:17\n    at ManagedPromise.invokeCallback_ (/Users/artur/node_modules/selenium-webdriver/lib/promise.js:1384:14)\n    at TaskQueue.execute_ (/Users/artur/node_modules/selenium-webdriver/lib/promise.js:3092:14)\n    at TaskQueue.executeNext_ (/Users/artur/node_modules/selenium-webdriver/lib/promise.js:3075:27)\n    at asyncRun (/Users/artur/node_modules/selenium-webdriver/lib/promise.js:2935:27)\n    at /Users/artur/node_modules/selenium-webdriver/lib/promise.js:676:7\n    at process._tickCallback (internal/process/next_tick.js:109:7)\nFrom: Task: <anonymous wait>\n    at scheduleWait (/Users/artur/node_modules/selenium-webdriver/lib/promise.js:2196:20)\n    at ControlFlow.wait (/Users/artur/node_modules/selenium-webdriver/lib/promise.js:2525:12)\n    at thenableWebDriverProxy.wait (/Users/artur/node_modules/selenium-webdriver/lib/webdriver.js:943:29)\n    at Context.<anonymous> (test/library.js:21:12)\n    at runTest (/Users/artur/node_modules/selenium-webdriver/testing/index.js:164:22)\n    at /Users/artur/node_modules/selenium-webdriver/testing/index.js:185:16\n    at new ManagedPromise (/Users/artur/node_modules/selenium-webdriver/lib/promise.js:1085:7)\n    at controlFlowExecute (/Users/artur/node_modules/selenium-webdriver/testing/index.js:184:14)\n    at TaskQueue.execute_ (/Users/artur/node_modules/selenium-webdriver/lib/promise.js:3092:14)\n    at TaskQueue.executeNext_ (/Users/artur/node_modules/selenium-webdriver/lib/promise.js:3075:27)\n    at asyncRun (/Users/artur/node_modules/selenium-webdriver/lib/promise.js:2935:27)\n    at /Users/artur/node_modules/selenium-webdriver/lib/promise.js:676:7\n    at process._tickCallback (internal/process/next_tick.js:109:7)\nFrom: Task: library app scenarios check that button is enabled\n    at Context.ret (/Users/artur/node_modules/selenium-webdriver/testing/index.js:183:10)"
+            },
+            "isRoot": false,
+            "uuid": "03739bb3-a011-4bf3-8296-4d3ae16d53da",
+            "isHook": false,
+            "skipped": false
+          },
+          {
+            "title": "submit email",
+            "fullTitle": "library app scenarios submit email",
+            "timedOut": false,
+            "duration": 3012,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "var submitBtn = driver.findElement(By.css('.btn-lg'));\ndriver.findElement(By.css('input')).sendKeys('user@mail.com');\nsubmitBtn.click();\ndriver.wait(until.elementLocated(By.css('.alert-success')), 5000).getText()\n.then(function(txt){\n      console.log('Alert text is:' + txt);\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "919a95f0-11b5-4605-933f-654750881a72",
+            "isHook": false,
+            "skipped": false
+          },
+          {
+            "title": "show nav text",
+            "fullTitle": "library app scenarios show nav text",
+            "timedOut": false,
+            "duration": 1862,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "driver.findElement(By.css('nav')).getText().then(function(txt){\n  console.log(txt);\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "e95d11e9-a1e4-4e9c-8c7f-e691c15e3a16",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "919a95f0-11b5-4605-933f-654750881a72",
+          "e95d11e9-a1e4-4e9c-8c7f-e691c15e3a16"
+        ],
+        "failures": [
+          "03739bb3-a011-4bf3-8296-4d3ae16d53da"
+        ],
+        "pending": [],
+        "skipped": [],
+        "duration": 12409,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 50000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2018
+}
